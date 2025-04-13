@@ -1,0 +1,27 @@
+import requests
+import datetime
+
+webhook_url = "https://discord.com/api/webhooks/1360658481190801561/XCQ7cDQeuPF4SjKE_MEzpTU6kfWVkAuNueY3_uV4uPPJkxV2mJRGDICHMATu_fi605fN"
+
+embed = {
+    "title": "<a:pepesaber:1358124234630631727> **ROBLOX DELTA X [ iOS ]** <a:pepesaber:1358124234630631727>",
+    "description": "<a:arrow_ledright:1329462702564835359> __LINK DOWNLOAD__ : [CLICK](https://github.com/khwq/tom/releases/download/untagged-9b226961afe951f3a43e/Roblox.-.VNG.DELTA.X.KUTOM.ipa)",
+    "color": 65280,
+    "footer": {
+        "text": '--By "@kutomlol"'
+    },
+    "timestamp": datetime.datetime.utcnow().isoformat()
+}
+
+payload = {
+    "embeds": [embed]
+}
+
+try:
+    response = requests.post(webhook_url, json=payload)
+    if response.status_code == 204:
+        print("Đã gửi embed thành công!")
+    else:
+        print(f"Lỗi: {response.status_code} - {response.text}")
+except Exception as e:
+    print(f"Lỗi khi gửi yêu cầu: {e}")
